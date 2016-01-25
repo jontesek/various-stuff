@@ -3,14 +3,14 @@ GOAL: Create a CSV file with time dimension.
 Columns: DateKey, FullDateKey, DayNumberInWeek, DayName, DayNumber, MonthNumber, YearNumber, WeekNumber, DayWeekType
 I.e. for year 2015.
 """
-
+import os
 import datetime
 
 from TextWriter import TextWriter
 
 # Define start and end dates.
-start_date = datetime.date(2015,1,1)
-end_date = datetime.date(2016,1,1)
+start_date = datetime.date(2014,1,1)
+end_date = datetime.date(2018,1,1)
 
 # Prepare variables
 total_data = []
@@ -50,6 +50,8 @@ header = [
 ]
 total_data.insert(0, header)
 
+# Get path to the script directory.
+output_dir = os.path.dirname(os.path.realpath(__file__))
 # Create a CSV file from the list.
-tw = TextWriter()
+tw = TextWriter(output_dir)
 tw.write_date_file('date_dim', total_data)
