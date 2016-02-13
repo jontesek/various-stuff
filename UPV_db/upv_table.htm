@@ -1,0 +1,1344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="Author" content="Ondrej Bohuslav,Milan Duty,Petr Vajner Telefónica O2 Business Solutions, spol. s r.o."/>
+<meta http-equiv="Content-Type" content="text/html; CHARSET=UTF-8"/>
+<meta content="cs" name="content-language"/>
+<meta content="Databáze českých označení původu a zeměpisných označení" name="description"/>
+<meta content="databáze,ÚPV ČR,Úřad Průmyslového vlastnictví,Česká republika,označení původu,zeměpisná označení,označení,průmyslová práva" name="keywords"/>
+<meta name="robots" content="follow, all"/>
+<title>
+ÚPV - Seznam vybraných označení původu a zeměpisných označení
+</title>
+<link media="screen" rel="stylesheet" type="text/css" href="http://www.upv.cz/docroot/upv/css/tripoli.css"/>
+<link media="screen" rel="stylesheet" type="text/css" href="http://www.upv.cz/docroot/upv/css/global.css"/>
+<link media="print" rel="stylesheet" type="text/css" href="http://www.upv.cz/docroot/upv/css/print.css"/>
+<link media="screen" rel="stylesheet" type="text/css" href="http://isdv.upv.cz/obr/css_reserse/final.css"/>
+<link media="print" rel="stylesheet" type="text/css" href="http://isdv.upv.cz/obr/css_reserse/tisk_test.css"/>
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+<h1 class="logo" style="font-size: 15px">
+<a href="http://www.upv.cz/cs/" title="Zpět na úvodní stránku">Úřad průmyslového vlastnictví</a>
+</h1>
+</div>
+<ul class="level1 navigation-main">
+<li>
+<a href="http://www.upv.cz/cs/sluzby-uradu/databaze-on-line/databaze-zemepisnych-oznaceni-a-oznaceni-puvodu/narodni-databaze.html">Zpět na seznam databází</a>
+</li>
+</ul>
+<div class="content">
+<div id= "content-header">
+<h2>
+ÚPV - Databáze českých označení původu a zeměpisných označení
+</h2>
+<p><span style="font-style: italic;">Údaje byly získány dne 13.02.2016. Poslední aktualizace databáze:  Úřad průmyslového vlastnictví - 11.02.2016;  WIPO - 08.02.2016</span></p>
+</div>
+<hr />
+<style>
+ a:visited    {color: purple}
+ </style>
+<link rel="stylesheet" href="/js/theme.blue.css" />
+<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<style>.zvyraznovac {color: red;}</style>
+<style>.tablesorter-filter {width: 100%;}</style>
+<script type="text/javascript" src="http://isdv.upv.cz/js/jquery.js"></script>
+<script type="text/javascript" src="http://isdv.upv.cz/js/jquery.tablesorter.js"></script>
+<script type="text/javascript" src="http://isdv.upv.cz/js/jquery.tablesorter.widgets.js"></script>
+  <script type="text/javascript">
+  $(function() {    
+
+    $.tablesorter.addParser({
+        // set a unique id 
+        id: 'rangesort',
+        is: function (s) {
+            // return false so this parser is not auto detected 
+            return false;
+        },
+        format: function (s, table, cell, cellIndex) {
+            // get data attributes from $(cell).attr('data-something');
+            // check specific column using cellIndex
+            return $(cell).attr('cprihl');
+        },
+        // set type, either numeric or text 
+        type: 'text'
+    });
+
+    $("#listtemplates").tablesorter({
+      sortList:[[1,0],[2,0]],
+      widthFixed : false,
+      sortLocaleCompare : true,
+      theme: 'blue',
+      widgets: ["zebra","filter"],
+      headers: { 0: { filter: false, sorter: false } },
+      widgetOptions : {
+
+      // If there are child rows in the table (rows with class name from "cssChildRow" option)
+      // and this option is true and a match is found anywhere in the child row, then it will make that row
+      // visible; default is false
+      filter_childRows : false,
+
+      // if true, a filter will be added to the top of each table column;
+      // disabled by using -> headers: { 1: { filter: false } } OR add class="filter-false"
+      // if you set this to false, make sure you perform a search using the second method below
+      filter_columnFilters : true,
+
+      // css class applied to the table row containing the filters & the inputs within that row
+      filter_cssFilter : 'tablesorter-filter',
+
+      // add custom filter functions using this option
+      // see the filter widget custom demo for more specifics on how to use this option
+      filter_functions : null,
+
+      // if true, filters are collapsed initially, but can be revealed by hovering over the grey bar immediately
+      // below the header row. Additionally, tabbing through the document will open the filter row when an input gets focus
+      filter_hideFilters : false,
+
+      // Set this option to false to make the searches case sensitive
+      filter_ignoreCase : true,
+
+      // jQuery selector string of an element used to reset the filters
+      filter_reset : 'button.reset',
+
+      // Delay in milliseconds before the filter widget starts searching; This option prevents searching for
+      // every character while typing and should make searching large tables faster.
+      filter_searchDelay : 300,
+
+      // Set this option to true to use the filter to find text from the start of the column
+      // So typing in "a" will find "albert" but not "frank", both have a's; default is false
+      filter_startsWith : false,
+
+      // Filter using parsed content for ALL columns
+      // be careful on using this on date columns as the date is parsed and stored as time in seconds
+      filter_useParsedData : false
+
+    }
+   });
+  });  
+  </script>
+<script type="text/javascript">
+//<![CDATA[
+  function obarviRadek(radek){
+    radek.style.background = "#DDDFE1";
+  }
+  function odbarviRadek(radek){
+    radek.style.background = "";
+  }
+      function getStranka(page) {
+          var input = document.createElement("input");
+      input.type = "hidden";
+     input.name = "ppage";
+   input.value =page;
+    myForm.appendChild(input);
+     myForm.submit();
+         }    
+      function  handleCounter(xpage){
+          var input = document.createElement("input");
+var page=xpage;
+   if(isNaN(xpage)){
+ xpage =0 ;
+ }else { 
+  if (xpage % 1 != 0){
+ xpage =0 ;
+} }
+      input.type = "hidden";
+     input.name = "ppage";
+   input.value = page;
+    myForm.appendChild(input);
+     myForm.submit();
+         }    
+//]]>
+</script>
+<span style="font-weight: bold;">Podmínky dotazu: </span>
+ ZDRK IN (U)
+Dotaz neobsahuje žádné podmínky.
+<br />
+<div id="zaznamy">
+<span style="font-weight: bold;">Zadaným podmínkám vyhovuje 220 záznamů.</span>
+<br />
+<span style="font-weight: bold;">Zobrazeny záznamy
+1 - 220
+</span>
+</div>
+<div id="strankovanitop">
+</div>
+<p style="font-family:arial; margin:10px 0pt 15px;font-size: 8pt; color: gray; text-align: left;">Kliknutím na název sloupce lze data v tabulce setřídit. Výsledky dotazu je možné filtrovat zadáním hledaného výrazu do záhlaví sloupce. Funkcionalita vyžaduje internet explorer minimálně ve verzi 9.</p>
+<table id="listtemplates" class="tablesorter" style="font-size:15px; width:100%;">
+
+        <thead>
+        <tr> 
+            <th data-placeholder="", style="width: 40px;">Zdroj</th>
+            <th data-placeholder="", style="width: 60px;">Číslo přihlášky</th> 
+            <th data-placeholder="", style="width: 60px;">Číslo zápisu</th> 
+            <th data-placeholder="">Znění</th>
+            <th data-placeholder="", style="width: 120px;">Stav</th> 
+        </tr> 
+        </thead>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=5&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">1</a></span>
+</td><td>4
+</td><td>KARLOVARSKÝ SUCHAR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=6&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">2</a></span>
+</td><td>5
+</td><td>KARLOVARSKÁ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=7&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">3</a></span>
+</td><td>6
+</td><td>KARLOVARSKÁ MINERÁLNÍ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=8&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">4</a></span>
+</td><td>7
+</td><td>KARLOVARSKÁ PŘÍRODNÍ MINERÁLNÍ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=9&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">5</a></span>
+</td><td>8
+</td><td>KARLOVARSKÝ MLÝNSKÝ PRAMEN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=10&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">6</a></span>
+</td><td>10
+</td><td>KARLOVARSKÁ VŘÍDELNÍ SŮL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=11&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">7</a></span>
+</td><td>9
+</td><td>KARLOVARSKÁ SŮL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=12&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">8</a></span>
+</td><td>11
+</td><td>KARLOVARSKÁ PŘÍRODNÍ VŘÍDELNÍ SUL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=13&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">9</a></span>
+</td><td>12
+</td><td>KYSELSKÁ (KYSIBELSKÁ) MATTONIHO KYSELKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=14&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">10</a></span>
+</td><td>13
+</td><td>MARIÁNSKO-LÁZEŇSKÁ PŘÍRODNÍ MINERÁLNÍ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=15&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">11</a></span>
+</td><td>14
+</td><td>MARIÁNSKO-LÁZEŇSKÁ RUDOLFKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=16&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">12</a></span>
+</td><td>15
+</td><td>FRANTIŠKO-LÁZEŇSKÁ PŘÍRODNÍ MINERÁLNÍ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=17&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">13</a></span>
+</td><td>19
+</td><td>BÍLINSKÁ KYSELKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=18&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">14</a></span>
+</td><td>20
+</td><td>PODĚBRADSKÁ MINERÁLNÍ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=19&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">15</a></span>
+</td><td>16
+</td><td>LUHAČOVICKÁ PŘÍRODNÍ MINERÁLNÍ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=20&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">16</a></span>
+</td><td>17
+</td><td>LUHAČOVICKÁ VINCENTKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=21&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">17</a></span>
+</td><td>18
+</td><td>ŠARATICA 
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=22&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">18</a></span>
+</td><td>62
+</td><td>PIEŠŤANSKÉ BAHNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=23&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">19</a></span>
+</td><td>66
+</td><td>JABLONECKÁ BIŽUTERIE
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=24&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">20</a></span>
+</td><td>65
+</td><td>JABLONECKÉ ZBOŽÍ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=25&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">21</a></span>
+</td><td>63
+</td><td>JABLONECKÉ SKLO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=26&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">22</a></span>
+</td><td>64
+</td><td>JABLONECKÁ KRYSTALERIE
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=27&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">23</a></span>
+</td><td>67
+</td><td>ŽELEZNOBRODSKÉ SKLO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=28&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">24</a></span>
+</td><td>68
+</td><td>ŽELEZNOBRODSKÉ FIGURKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=29&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">25</a></span>
+</td><td>21
+</td><td>KRASLICKÉ HUDEBNÍ NÁSTROJE
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=30&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">26</a></span>
+</td><td>22
+</td><td>KRASLICKÉ KRAJKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=31&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">27</a></span>
+</td><td>74
+</td><td>ČESKÝ KŘIŠŤÁL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=32&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">28</a></span>
+</td><td>75
+</td><td>ČESKÉ SKLO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=33&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">30</a></span>
+</td><td>27
+</td><td>ČESKÝ PORCELÁN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=34&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">31</a></span>
+</td><td>28
+</td><td>DUCHCOVSKÝ PORCELÁN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=35&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">32</a></span>
+</td><td>29
+</td><td>KARLOVARSKÝ PORCELÁN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=36&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">33</a></span>
+</td><td>32
+</td><td>PRAVÉ OLOMOUCKÉ TVARUŽKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=37&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">34</a></span>
+</td><td>23
+</td><td>LIPTOVSKÁ BRYNDZA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=38&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">35</a></span>
+</td><td>24
+</td><td>SLOVENSKÝ OŠTIEPOK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=39&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">36</a></span>
+</td><td>70
+</td><td>MORAVSKÁ CIHLA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=40&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">38</a></span>
+</td><td>55
+</td><td>KRKONOŠSKÝ PIVNÍ SÝR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=41&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">42</a></span>
+</td><td>71
+</td><td>PARDUBICKÝ PERNÍK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=42&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">43</a></span>
+</td><td>72
+</td><td>KARLOVARSKÉ OPLATKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=43&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">44</a></span>
+</td><td>73
+</td><td>MARIÁNSKO-LÁZEŇSKÉ OPLATKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=44&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">45</a></span>
+</td><td>69
+</td><td>SLOVÁCKÁ BOROVIČKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=45&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">46</a></span>
+</td><td>46
+</td><td>TRENČIANSKÁ BOROVIČKA &quot;JUNIPERUS&quot;
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=46&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">47</a></span>
+</td><td>47
+</td><td>ZNOJEMSKÉ OKURKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=47&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">48</a></span>
+</td><td>33
+</td><td>BRATISLAVSKÉ HROZNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=3422&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">49</a></span>
+</td><td>34
+</td><td>BZENECKÁ LIPKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=49&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">50</a></span>
+</td><td>35
+</td><td>LIMBAŠSKÝ SYLVÁN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=50&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">51</a></span>
+</td><td>36
+</td><td>MALOKARPATSKÉ ZLATO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=51&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">52</a></span>
+</td><td>37
+</td><td>MODRANSKA HARMÓNIA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=52&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">53</a></span>
+</td><td>38
+</td><td>PÁLAVSKÉ BÍLÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=53&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">54</a></span>
+</td><td>39
+</td><td>PAVLOVICKÉ OHNIVÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=54&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">55</a></span>
+</td><td>40
+</td><td>PEZINSKÉ ZÁMOCKÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=55&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">56</a></span>
+</td><td>41
+</td><td>PRAŽSKÝ VÝBĚR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=56&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">57</a></span>
+</td><td>42
+</td><td>SKALICKÝ RUBÍN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=57&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">58</a></span>
+</td><td>43
+</td><td>SLOVÁCKÝ RUBÍN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=58&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">59</a></span>
+</td><td>44
+</td><td>SVÄTOJURSKÝ MUŠKÁTEL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=59&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">60</a></span>
+</td><td>25
+</td><td>SMÍCHOVSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=60&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">61</a></span>
+</td><td>26
+</td><td>SMÍCHOVSKÝ STAROPRAMEN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=61&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">62</a></span>
+</td><td>76
+</td><td>VELKOPOPOVICKÝ SVĚTLÝ LEŽÁK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=62&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">63</a></span>
+</td><td>1
+</td><td>PLZEŇ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=63&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">64</a></span>
+</td><td>2
+</td><td>PLZEŇSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=64&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">65</a></span>
+</td><td>3
+</td><td>PLZEŇSKÝ PRAZDROJ
+</td><td>Zrušený dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=65&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">66</a></span>
+</td><td>50
+</td><td>ČESKOBUDĚJOVICKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=66&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">67</a></span>
+</td><td>53
+</td><td>BUDĚJOVICKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=67&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">69</a></span>
+</td><td>51
+</td><td>BUDĚJOVICKÉ PIVO - BUDVAR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=68&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">70</a></span>
+</td><td>52
+</td><td>BUDĚJOVICKÝ BUDVAR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=3202&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">71</a></span>
+</td><td>30
+</td><td>ČESKOSLOVENSKÝ SLAD 
+</td><td>Zrušený dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=70&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">72</a></span>
+</td><td>31
+</td><td>ČESKÝ SLAD
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=71&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">73</a></span>
+</td><td>49
+</td><td>SLOVENSKÝ SLAD
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=72&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">74</a></span>
+</td><td>45
+</td><td>TOKAJSKÉ VÍNO ZO SLOVENSKEJ OBLASTI
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=73&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">75</a></span>
+</td><td>56
+</td><td>VALAŠSKOMEZIŘÍČSKÝ GOBELIN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=74&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">76</a></span>
+</td><td>57
+</td><td>JINDŘICHOHRADECKÝ GOBELIN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=75&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">77</a></span>
+</td><td>58
+</td><td>ŽATECKÝ CHMEL - ČESKÝ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=76&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">78</a></span>
+</td><td>60
+</td><td>ÚŠTĚCKÝ CHMEL - ČESKÝ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=77&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">79</a></span>
+</td><td>59
+</td><td>TRŠICKÝ CHMEL - MORAVSKÝ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=78&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">80</a></span>
+</td><td>61
+</td><td>MALÍNSKÝ KŘEN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=79&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">81</a></span>
+</td><td>54
+</td><td>TŘEBOŇSKÝ KAPR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=80&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">95</a></span>
+</td><td>77
+</td><td>KARLOVARSKÁ HOŘKÁ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=81&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">96</a></span>
+</td><td>48
+</td><td>PROSTĚJOVSKÁ STAROREŽNÁ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=82&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">97</a></span>
+</td><td>85
+</td><td>PREŠOVSKÁ JODIDOVANÁ KÚPELNÁ SOL|
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=83&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">98</a></span>
+</td><td>78
+</td><td>SLOVENSKÝ MAGNEZIT
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=84&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">100</a></span>
+</td><td>79
+</td><td>SEDLECKÝ KAOLIN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=85&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">101</a></span>
+</td><td>82
+</td><td>BANSKOBELANSKÝ DINAS
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=86&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">103</a></span>
+</td><td>80
+</td><td>ČESKÝ GRANÁT
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=87&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">104</a></span>
+</td><td>81
+</td><td>ČESKÝ GRANÁTOVÝ ŠPERK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=88&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">105</a></span>
+</td><td>83
+</td><td>VAMBERECKÁ KRAJKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=89&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">109</a></span>
+</td><td>84
+</td><td>CHAMOMILLA BOHEMICA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=90&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">110</a></span>
+</td><td>87
+</td><td>FLEKOVSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=91&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">111</a></span>
+</td><td>88
+</td><td>BRÁNICKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=92&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">112</a></span>
+</td><td>90
+</td><td>PIVO PRAŽANKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=93&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">113</a></span>
+</td><td>89
+</td><td>PIVO PRAŽAN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=94&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">114</a></span>
+</td><td>86
+</td><td>BUD
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=95&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">115</a></span>
+</td><td>91
+</td><td>MODRANSKÁ MAJOLIKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=96&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">116</a></span>
+</td><td>93
+</td><td>BOHEMIA SEKT ROSÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=97&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">117</a></span>
+</td><td>92
+</td><td>BOHEMIA SEKT
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=98&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">119</a></span>
+</td><td>94
+</td><td>URPÍN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=99&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">120</a></span>
+</td><td>96
+</td><td>MARTINSKÝ ZDROJ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=100&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">121</a></span>
+</td><td>95
+</td><td>GEMER
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=101&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">122</a></span>
+</td><td>98
+</td><td>BRATISLAVSKÝ LEŽIAK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=102&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">123</a></span>
+</td><td>99
+</td><td>NITRIANSKY LEŽIAK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=103&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">124</a></span>
+</td><td>97
+</td><td>ŠARIŠSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=104&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">125</a></span>
+</td><td>100
+</td><td>BRATISLAVSKÉ HRADNÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=105&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">126</a></span>
+</td><td>101
+</td><td>POSONIUM
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=106&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">127</a></span>
+</td><td>102
+</td><td>RAČIANSKÁ FRANKOVKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=107&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">128</a></span>
+</td><td>103
+</td><td>RAČIANSKY VÝBER
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=108&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">129</a></span>
+</td><td>104
+</td><td>MODRANSKÉ KRÁLOVSKÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=109&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">130</a></span>
+</td><td>105
+</td><td>MODRANSKÁ ZLATÁ PERLA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=110&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">131</a></span>
+</td><td>106
+</td><td>OREŠANSKÉ ČERVENÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=111&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">132</a></span>
+</td><td>107
+</td><td>PEZINSKÉ KLÁŠTORNÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=112&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">133</a></span>
+</td><td>108
+</td><td>KARPATSKÉ BRANDY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=113&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">134</a></span>
+</td><td>109
+</td><td>JUŽNOSLOVENSKÝ VÝBER
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=114&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">135</a></span>
+</td><td>110
+</td><td>ČERMANSKÉ ČERVENÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=115&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">136</a></span>
+</td><td>111
+</td><td>NITRIANSKÉ HRADNÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=116&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">137</a></span>
+</td><td>112
+</td><td>SVÄTOPETERSKÝ RIZLING
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=117&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">138</a></span>
+</td><td>113
+</td><td>ZOBORSKÉ ZLATO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=118&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">139</a></span>
+</td><td>114
+</td><td>CASSOVIA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=119&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">140</a></span>
+</td><td>115
+</td><td>ČARO ZEMPLÍNA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=120&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">141</a></span>
+</td><td>116
+</td><td>IPEĽSKÉ TAJOMSTVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=121&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">142</a></span>
+</td><td>117
+</td><td>KOŠICKÝ POKLAD
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=122&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">143</a></span>
+</td><td>118
+</td><td>MODROKAMEŇSKÝ KRIŠTÁL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=123&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">144</a></span>
+</td><td>119
+</td><td>ŠÍRAVA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=124&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">145</a></span>
+</td><td>120
+</td><td>VINIANSKY STRAPEC
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=125&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">146</a></span>
+</td><td>121
+</td><td>SLOVENSKÉ HROZNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=126&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">147</a></span>
+</td><td>122
+</td><td>POZDIŠOVSKÁ KERAMIKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=127&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">148</a></span>
+</td><td>123
+</td><td>KUNŠTÁTSKÁ KERAMIKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=128&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">149</a></span>
+</td><td>124
+</td><td>MUTĚNICKÝ VÝBĚR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=129&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">150</a></span>
+</td><td>125
+</td><td>MUTĚNICKÝ GRANÁT
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=130&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">151</a></span>
+</td><td>128
+</td><td>NOŠOVICKÉ PIVO - světlé
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=131&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">152</a></span>
+</td><td>129
+</td><td>PŘEROVSKÉ PIVO - světlé
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=132&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">153</a></span>
+</td><td>130
+</td><td>OSTRAVSKÉ PIVO - světlé
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=133&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">154</a></span>
+</td><td>126
+</td><td>VRATISLAVICKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=134&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">155</a></span>
+</td><td>127
+</td><td>LOUNSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=135&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">157</a></span>
+</td><td>131
+</td><td>TATRAN - POPRADSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=136&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">160</a></span>
+</td><td>132
+</td><td>BALDOVSKÁ MINERÁLNA VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=137&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">161</a></span>
+</td><td>133
+</td><td>LIPOVSKÁ MINERÁLNA VODA SALVATOR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=138&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">162</a></span>
+</td><td>134
+</td><td>CÍGEĽSKÁ MINERÁLNA VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=139&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">163</a></span>
+</td><td>135
+</td><td>KORYTNICKÁ MINERÁLNA VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=140&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">164</a></span>
+</td><td>136
+</td><td>BUDIŠSKÁ MINERÁLNA VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=141&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">165</a></span>
+</td><td>137
+</td><td>MARTINSKÁ MINERÁLNA VODA FATRA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=142&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">166</a></span>
+</td><td>138
+</td><td>SANTOVSKÁ MINERÁLNA VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=143&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">167</a></span>
+</td><td>139
+</td><td>SLATINSKÁ MINERÁLNA VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=144&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">169</a></span>
+</td><td>140
+</td><td>HLOHOVSKÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=145&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">170</a></span>
+</td><td>141
+</td><td>MODRANSKÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=146&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">171</a></span>
+</td><td>142
+</td><td>LEVICKÁ FRANKOVKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=147&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">172</a></span>
+</td><td>143
+</td><td>NITRIANSKE KNIEŽA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=148&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">173</a></span>
+</td><td>144
+</td><td>NOVOZÁMOCKÉ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=149&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">174</a></span>
+</td><td>145
+</td><td>PESECKÉ DIEVČIE HROZNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=150&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">175</a></span>
+</td><td>146
+</td><td>NOVOHRADSKÉ DIEVČA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=151&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">176</a></span>
+</td><td>147
+</td><td>SOBRANECKÁ SL'ŇAVA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=152&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">177</a></span>
+</td><td>148
+</td><td>BŘEZNICKÝ LEŽÁK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=153&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">178</a></span>
+</td><td>149
+</td><td>RAKOVNÍK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=154&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">179</a></span>
+</td><td>150
+</td><td>VYSOKOCHLUMECKÝ LEŽÁK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=155&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">180</a></span>
+</td><td>151
+</td><td>VYSOKOCHLUMECKÝ LEŽÁK TMAVÝ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=156&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">184</a></span>
+</td><td>152
+</td><td>BUDĚJOVICKÝ MĚŠŤANSKÝ VAR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=157&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">185</a></span>
+</td><td>154
+</td><td>RATÍŠKOVICKÉ VÍNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=158&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">186</a></span>
+</td><td>159
+</td><td>HOŘICKÉ TRUBIČKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=159&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">187</a></span>
+</td><td>153
+</td><td>PIEŠŤANSKE KÚPEĽNE OBLÁTKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=160&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">188</a></span>
+</td><td>157
+</td><td>VELKOPOPOVICKÝ KOZEL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=161&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">190</a></span>
+</td><td>158
+</td><td>BENEŠOVSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=162&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">191</a></span>
+</td><td>155
+</td><td>SEDLČANSKÝ HERMELÍN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=163&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">192</a></span>
+</td><td>156
+</td><td>BRNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=164&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">193</a></span>
+</td><td>160
+</td><td>BĚLOVESKÁ KYSELKA IDA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=165&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">194</a></span>
+</td><td>167
+</td><td>NOVOHRADSKÁ PŘÍRODNÍ MINERÁLNÍ DOBRÁ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=166&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">195</a></span>
+</td><td>161
+</td><td>SOKOLOVSKÉ BRIKETY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=167&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">197</a></span>
+</td><td>162
+</td><td>SOKOLOVSKÉ UHELNÉ BRIKETY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=168&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">198</a></span>
+</td><td>164
+</td><td>KRUŠOVICKÝ LEŽÁK
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=169&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">199</a></span>
+</td><td>165
+</td><td>KRUŠOVICE
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=170&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">200</a></span>
+</td><td>166
+</td><td>KRUŠOVICKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=171&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">201</a></span>
+</td><td>168
+</td><td>VODŇANSKÁ KACHNA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=172&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">202</a></span>
+</td><td>163
+</td><td>CHODSKÁ KERAMIKA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=173&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">203</a></span>
+</td><td>170
+</td><td>ŠOBES
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=174&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">204</a></span>
+</td><td>169
+</td><td>ŠOBESKÉ VÍNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=175&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">205</a></span>
+</td><td>173
+</td><td>Korytnica
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=176&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">206</a></span>
+</td><td>174
+</td><td>Korytnická
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=177&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">207</a></span>
+</td><td>171
+</td><td>Karlovarské trojhránky
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=178&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">208</a></span>
+</td><td>172
+</td><td>Karlovarské trubičky
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=179&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">209</a></span>
+</td><td>
+</td><td>KRUŠOVICKÉ PIVO  
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=180&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">210</a></span>
+</td><td>175
+</td><td>ŠTRAMBERSKÉ UŠI
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=181&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">211</a></span>
+</td><td>176
+</td><td>PIRKENHAMMER
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=182&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">212</a></span>
+</td><td>184
+</td><td>KARLOVARSKÉ LÁZEŇSKÉ OPLATKY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=183&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">213</a></span>
+</td><td>183
+</td><td>KARLOVARSKÁ PŘÍRODNÍ SŮL
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=184&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">214</a></span>
+</td><td>
+</td><td>VINOHRADSKÝ PEŠKOVSKÝ GULÁŠ
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=185&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">215</a></span>
+</td><td>181
+</td><td>VŠESTARSKÁ CIBULE
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=186&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">216</a></span>
+</td><td>182
+</td><td>VŠESTARSKÁ MRKEV
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=187&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">217</a></span>
+</td><td>177
+</td><td>VELKOBÍLOVICKÉ VÍNO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=188&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">218</a></span>
+</td><td>178
+</td><td>NOŠOVICKÉ KYSANÉ ZELÍ
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=189&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">219</a></span>
+</td><td>180
+</td><td>BRNĚNSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=190&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">220</a></span>
+</td><td>179
+</td><td>ČESKÝ MED
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=191&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">221</a></span>
+</td><td>185
+</td><td>STAROBRNĚNSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=192&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">222</a></span>
+</td><td>186
+</td><td>ZNOJEMSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=193&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">223</a></span>
+</td><td>188
+</td><td>MARIÁNSKOLÁZEŇSKÝ KAPR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=194&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">224</a></span>
+</td><td>187
+</td><td>POHOŘELICKÝ KAPR
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=195&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">225</a></span>
+</td><td>192
+</td><td>VYSOČINA
+</td><td>Zrušený dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=196&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">226</a></span>
+</td><td>189
+</td><td>ČERNÁ HORA                                                      
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=197&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">227</a></span>
+</td><td>190
+</td><td>ČERNÁ HORA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=198&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">228</a></span>
+</td><td>191
+</td><td>ČERNOHORSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=199&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">229</a></span>
+</td><td>193
+</td><td>ČESKÝ KMÍN
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=200&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">230</a></span>
+</td><td>195
+</td><td>CHODSKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=201&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">231</a></span>
+</td><td>196
+</td><td>BAVOROVSKÉ JAHODY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=4&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">232</a></span>
+</td><td>194
+</td><td>CHELČICKO - LHENICKÉ OVOCE
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=202&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">233</a></span>
+</td><td>197
+</td><td>HORNO-MOŠTĚNICKÁ PŘÍRODNÍ MINERÁLNÍ VODA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=203&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">234</a></span>
+</td><td>
+</td><td>ZDOUNECKÉ MRAŽENÉ KRÉMY  
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=204&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">235</a></span>
+</td><td>
+</td><td>TRADIČNÍ ČESKÉ PIVO
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=205&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">236</a></span>
+</td><td>
+</td><td>MORAVSKÝ BLOK
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=206&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">237</a></span>
+</td><td>
+</td><td>MORAVSKÝ BOCHNÍK
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=207&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">238</a></span>
+</td><td>
+</td><td>TRADIČNÍ ČESKÉ PIVO
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=208&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">239</a></span>
+</td><td>199
+</td><td>JIHOČESKÁ NIVA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=209&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">240</a></span>
+</td><td>200
+</td><td>JIHOČESKÁ ZLATÁ NIVA
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=210&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">241</a></span>
+</td><td>
+</td><td>ČESKÉ PIVO
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=211&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">242</a></span>
+</td><td>198
+</td><td>LOMNICKÉ SUCHARY
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=213&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">246</a></span>
+</td><td>
+</td><td>Blaťácké zlato
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=215&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">247</a></span>
+</td><td>
+</td><td>Moravská paštika
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=214&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">248</a></span>
+</td><td>
+</td><td>Slovácká paštika
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=217&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">250</a></span>
+</td><td>201
+</td><td>Vizovické pečivo
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=218&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">251</a></span>
+</td><td>202
+</td><td>Novosedelské Slámové víno
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=1322&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">254</a></span>
+</td><td>
+</td><td>Valašský frgál
+</td><td>Platný dokument</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=1362&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">257</a></span>
+</td><td>
+</td><td>Sněžník produkt
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=2562&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">260</a></span>
+</td><td>
+</td><td>Brambory z Vysočiny
+</td><td>Negativně ukončená po podání</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=3342&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">261</a></span>
+</td><td>
+</td><td>Vizovická slivovice
+</td><td>Podaná</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=3642&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">262</a></span>
+</td><td>
+</td><td>Benešovské pivo
+</td><td>Podaná</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=3682&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">263</a></span>
+</td><td>
+</td><td>Český modrý mák
+</td><td>Podaná</td><tr>
+<tr onmouseover="obarviRadek(this)" onmouseout="odbarviRadek(this)"><td><IMG SRC="http://isdv.upv.cz/obr/ikony/upv.gif" width="15" height="15" BORDER="0" alt="Úřad průmyslového vlastnictví" title="Úřad průmyslového vlastnictví">
+<td><span style="font-weight: bold;" title="(Detail spisu)"><a href="portlets.ops.det?popk=3702&plang=cs&s_naz=&s_maj=&s_prv=&s_uze=&s_vyr=&s_spc=">264</a></span>
+</td><td>
+</td><td>Mikulovské levandulové víno (Mikulov lavender wine)
+</td><td>Podaná</td><tr>
+</table>
+<div id="strankovanibottom">
+<span style="font-style: italic;">výsledek dotazu připraven na zobrazení za      0.26s</span>
+<br />
+<br />
+<form name="form_for" id="form_for" action="portlets.ops.frm" method="post">
+<input type="hidden" name="O_CIOD" value="="/>
+<input type="hidden" name="S_CIOD" value=""/>
+<input type="hidden" name="O_CIPV" value="="/>
+<input type="hidden" name="S_CIPV" value=""/>
+<input type="hidden" name="O_NAZASCII" value=""/>
+<input type="hidden" name="S_NAZ" value=""/>
+<input type="hidden" name="O_PRVASCII" value=""/>
+<input type="hidden" name="S_PRV" value=""/>
+<input type="hidden" name="O_MAJASCII" value=""/>
+<input type="hidden" name="S_MAJ" value=""/>
+<input type="hidden" name="O_UZEASCII" value=""/>
+<input type="hidden" name="S_UZE" value=""/>
+<input type="hidden" name="O_SPCASCII" value=""/>
+<input type="hidden" name="S_SPC" value=""/>
+<input type="hidden" name="O_VYRASCII" value=""/>
+<input type="hidden" name="S_VYR" value=""/>
+<input type="hidden" name="O_DPOD" value="="/>
+<input type="hidden" name="S_DPOD" value=""/>
+<input type="hidden" name="O_DZAPI" value="="/>
+<input type="hidden" name="S_DZAPI" value=""/>
+<input type="hidden" name="f_zupv" value="on"/>
+<input type="hidden" name="f_zwipo" value=""/>
+<input type="hidden" name="PLANG" value="Czech"/>
+<input type="hidden" name="PSCALE" value="500"/>
+</form>
+<div align="center">
+<table class="tlacitka">
+<tr><td><input type="button" value="Zpět na formulář" class="button130" style="width:150px; height:25px;" onclick="javascript: document.form_for.submit();"/></td></tr>
+</table>
+</div>
+</div>
+<br />
+<hr size="1" width="80%"/>
+</div></div>
+<img alt="logo" src="http://isdv.upv.cz/obr/css_reserse2/obr/bar_color.png" title="Logo" style="padding-bottom:5px;"/><br/><span style="font-size: 15px;">Projekt Elektronická podpora prosazování práv z duševního vlastnictví byl spolufinancován Evropským fondem pro regionální rozvoj v rámci Integrovaného operačního programu.</span>
+<div class="footer-wrap">
+<div class="footer">
+<p class="copyright">
+Copyright 2008 Úřad průmyslového vlastnictví
+<a href="http://www.o2bs.com/">Vytvořeno firmou Telefónica O2 Business<br />Solutions, spol. s r. o.</a>
+</p>
+<ul class="flist">
+<li>
+<a href="http://www.upv.cz/cs/sitemap.html">Mapa stránek</a>
+</li>
+<li>
+<a href="http://www.upv.cz/cs/upv/kontakty.html">Kontakty</a>
+</li>
+<li>
+<a href="http://www.upv.cz/cs/prohlaseni-o-pristupnosti.html">Prohlášení o přístupnosti</a>
+</li>
+</ul>
+<ul class="flist">
+<li>
+<a href="http://www.upv.cz/cs/informacni-zdroje/prava-k-jinemu-dusevnimu-vlastnictvi.html">Práva k jinému duševnímu vlastnictví</a>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
